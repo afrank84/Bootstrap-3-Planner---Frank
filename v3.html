@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+<!-- 
+	Author: Anthony Frank 
+	Date: 04/02/2016
+-->
+   <HEAD>
+   <!-- Bootstrap Mobile First -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	
+	
+   <TITLE>JS PLanner Printable - By Anthony Frank</TITLE>
+   </HEAD>
+   <BODY>
+	<!--Use .container-fluid for a full width container, 
+		spanning the entire width of your viewport.-->
+	   <div class="container-fluid">
+			<h2 id="month_ALF"><!--Month is Inserted Here --></h2>
+			<div class="row">
+			  <div class="col-xs-6 col-sm-3"><h4 id="date_col_1">Col 1</h4>
+				<table class="table table-striped" id="time_col_1">
+					
+				</table>
+			  </div>
+			  
+			  <!-- Add the extra clearfix for only the required viewport -->
+			  <div class="clearfix visible-xs-block"></div>
+			  
+			  <div class="col-xs-6 col-sm-3"><h4 id="date_col_2">Col 2</h4>
+				<table class="table table-striped" id="time_col_2">
+
+				</table>
+			  </div>
+
+			  <!-- Add the extra clearfix for only the required viewport -->
+			  <div class="clearfix visible-xs-block"></div>
+
+			  <div class="col-xs-6 col-sm-3"><h4 id="date_col_3">Col 3</h4>
+				<table class="table table-striped" id="time_col_3">
+
+				</table>
+			  </div>
+			  
+			  <!-- Add the extra clearfix for only the required viewport -->
+			  <div class="clearfix visible-xs-block"></div>
+			  
+			  <div class="col-xs-6 col-sm-3"><h4 id="date_col_4">Col 4</h4>
+				<table class="table table-striped" id="time_col_4">
+
+				</table>
+			  </div>
+			</div>
+
+
+		</div>
+   <!--Javascript Runs last -->
+   <script>
+
+//Adds Current Month at Top of Page Dynamically
+	var d = new Date();
+	var monthNames =[
+						"January", 
+						"February", 
+						"March", 
+						"April", 
+						"May", 
+						"June", 
+						"July", 
+						"August", 
+						"September", 
+						"October", 
+						"November", 
+						"December"
+					];
+	document.getElementById("month_ALF").innerHTML = monthNames[d.getMonth()];
+	
+//Adds Dates to Each of the four Column	
+	var today = new Date();
+	var day = today.getUTCDate();
+	document.getElementById("date_col_1").innerHTML = "Day: " + (day + 0);
+	document.getElementById("date_col_2").innerHTML = "Day: " + (day + 1);
+	document.getElementById("date_col_3").innerHTML = "Day: " + (day + 2);
+	document.getElementById("date_col_4").innerHTML = "Day: " + (day + 3);
+	
+//Creates Columns Dynamically	
+	function time_columns_ALF() {
+		var text = "";
+		var i = 7;
+		
+		while (i < 19) {
+			text += "<tr><td>" + i + "</td></tr><tr><td>&nbsp;</td></tr>";
+			i++;
+		}
+
+		// Adds Time 7 - 18 over four colums
+		document.getElementById("time_col_1").innerHTML = text;
+		document.getElementById("time_col_2").innerHTML = text;
+		document.getElementById("time_col_3").innerHTML = text;
+		document.getElementById("time_col_4").innerHTML = text;
+	}//End  time_columns_ALF
+	
+	time_columns_ALF();
+	
+	</script>
+   </BODY>
+</HTML>
